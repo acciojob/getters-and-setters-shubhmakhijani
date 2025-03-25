@@ -1,37 +1,41 @@
-// Person class
 class Person {
   constructor(name, age) {
     this._name = name;
     this._age = age;
   }
 
-  // Getter for name
   get name() {
     return this._name;
   }
 
-  // Getter for age
+  set age(newAge) {
+    if (typeof newAge === 'number' && newAge > 0) {
+      this._age = newAge;
+    }
+  }
+
   get age() {
     return this._age;
   }
-
-  // Setter for age
-  set age(newAge) {
-    this._age = newAge;
-  }
 }
 
-// Student class inheriting from Person
 class Student extends Person {
+  constructor(name, age) {
+    super(name, age);
+  }
+
   study() {
-    console.log(${this.name} is studying);
+    console.log(`${this.name} is studying`);
   }
 }
 
-// Teacher class inheriting from Person
 class Teacher extends Person {
+  constructor(name, age) {
+    super(name, age);
+  }
+
   teach() {
-    console.log(${this.name} is teaching);
+    console.log(`${this.name} is teaching`);
   }
 }
 
